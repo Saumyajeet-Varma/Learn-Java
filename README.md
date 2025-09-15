@@ -1,8 +1,15 @@
 # Learn Java
 
+
+
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+- [Data Types](#data-types)
+
+
+
 
 ## Getting Started
 
@@ -83,6 +90,9 @@ System.out.println("Hello World");
 
 ```
 
+
+
+
 ## Data Types
 
 Data types are divided into two groups:
@@ -158,3 +168,56 @@ In Java, there are two types of casting:
     `double` -> `float` -> `long` -> `int` -> `char` -> `short` -> `byte`
 
 > You can see the code examples in [src/module2/TypeCasting.java](/src/module02/TypeCasting.java)
+
+## Operators
+
+Operators are used to perform operations on variables and values.
+
+### Arithmetic Operators
+
+| Operator | Name          | Description                               | Example |
+|----------|---------------|-------------------------------------------|---------|
+| +        | Addition      | Adds together two values                  | x + y   |
+| -        | Subtraction   | Subtracts one value from another          | x - y   |
+| *        | Multiplication| Multiplies two values                     | x * y   |
+| /        | Division      | Divides one value by another              | x / y   |
+| %        | Modulus       | Returns the division remainder            | x % y   |
+| ++       | Increment     | Increases the value of a variable by 1    | ++x     |
+| --       | Decrement     | Decreases the value of a variable by 1    | --x     |
+
+> **NOTE**: When dividing two integers in Java, the result will also be an integer. For example, 10 / 3 gives 3. If you want a decimal result, use double values, like 10.0 / 3.
+
+### Assignment Operators
+
+| Operator | Example  | Same As     |
+|----------|----------|-------------|
+| =        | x = 5    | x = 5       |
+| +=       | x += 3   | x = x + 3   |
+| -=       | x -= 3   | x = x - 3   |
+| *=       | x *= 3   | x = x * 3   |
+| /=       | x /= 3   | x = x / 3   |
+| %=       | x %= 3   | x = x % 3   |
+| &=       | x &= 3   | x = x & 3   |
+| \|=      | x \|= 3  | x = x \| 3  |
+| ^=       | x ^= 3   | x = x ^ 3   |
+| >>=      | x >>= 3  | x = x >> 3  |
+| <<=      | x <<= 3  | x = x << 3  |
+
+### Comparision Operators
+
+| Operator | Name                       | Example |
+|----------|----------------------------|---------|
+| ==       | Equal to                   | x == y  |
+| !=       | Not equal                  | x != y  |
+| >        | Greater than               | x > y   |
+| <        | Less than                  | x < y   |
+| >=       | Greater than or equal to   | x >= y  |
+| <=       | Less than or equal to      | x <= y  |
+
+### Logical Operators
+
+| Operator | Name        | Description                                    | Example               |
+|----------|-------------|------------------------------------------------|-----------------------|
+| &&       | Logical AND | Returns true if both statements are true        | x < 5 && x < 10       |
+| \|\|     | Logical OR  | Returns true if one of the statements is true   | x < 5 \|\| x < 4      |
+| !        | Logical NOT | Reverses the result, returns false if true      | !(x < 5 && x < 10)    |
