@@ -7,6 +7,8 @@
 
 - [Getting Started](#getting-started)
 - [Data Types](#data-types)
+- [Operators](#operators)
+- [Strings](#strings)
 
 
 
@@ -169,6 +171,9 @@ In Java, there are two types of casting:
 
 > You can see the code examples in [src/module2/TypeCasting.java](/src/module02/TypeCasting.java)
 
+
+
+
 ## Operators
 
 Operators are used to perform operations on variables and values.
@@ -221,3 +226,80 @@ Operators are used to perform operations on variables and values.
 | &&       | Logical AND | Returns true if both statements are true        | x < 5 && x < 10       |
 | \|\|     | Logical OR  | Returns true if one of the statements is true   | x < 5 \|\| x < 4      |
 | !        | Logical NOT | Reverses the result, returns false if true      | !(x < 5 && x < 10)    |
+
+
+
+
+## Strings
+
+Strings are used for storing text.
+
+
+A `String` variable contains a collection of characters surrounded by double quotes
+
+```java
+String txt = "Hello";
+
+```
+
+### String Methods
+
+- **length** - To calculate the length of a string.
+- **toUpperCase** - To converts a string to uppercase.
+- **toLowerCase** - To converts a string to lowercase.
+- **indexOf** - It returns the index (the position) of the first occurrence of a specified text in a string (including whitespaces).
+- **charAt** - To access a character at a specific position in a string.
+- **equals** - To compare two strings.
+- **trim** - To remove whitespaces from beginning and ending of the string.
+- **concat** - To concatenate two strings.
+
+> For code example
+> - [src/module04/StringMethods.java](./src/module04/StringMethods.java)
+> - [src/module04/Concatenation.java](./src/module04/Concatenation.java)
+
+### Adding Numbers and Strings
+
+If you add two numbers, the result will be a number
+
+```java
+int x = 10;
+int y = 20;
+int z = x + y;  // z will be 30 (an integer/number)
+
+```
+
+If you add two strings, the result will be a string concatenation
+
+```java
+String x = "10";
+String y = "20";
+String z = x + y;  // z will be 1020 (a String)
+
+```
+
+If you add a number and a string, the result will be a string concatenation
+
+```java
+String x = "10";
+int y = 20;
+String z = x + y;  // z will be 1020 (a String)
+
+```
+
+### Special Characters
+
+| Escape character | Result | Description   |
+|------------------|--------|---------------|
+| \\'               | '      | Single quote  |
+| \\"               | "      | Double quote  |
+| \\\\               | \      | Backslash     |
+
+| Code | Result | Description       |
+|------|--------|-------------------|
+| \n   | New Line       | Moves cursor to next line |
+| \t   | Tab            | Inserts a horizontal tab   |
+| \b   | Backspace      | Deletes previous character |
+| \r   | Carriage Return| Moves cursor to line start |
+| \f   | Form Feed      | Moves to next page (printer context) |
+
+> For code example - [src/module04/SpecialCharacters.java](./src/module04/SpecialCharacters.java)
