@@ -10,6 +10,7 @@
 - [Operators](#operators)
 - [Strings](#strings)
 - [Maths](#math)
+- [Conditinal Statements](#conditional-statements)
 
 
 
@@ -312,4 +313,303 @@ String z = x + y;  // z will be 1020 (a String)
 
 We have `max(x, y)`, `min(x, y)`, `abs(x)`, `pow(x, y)`, `round(x)`, `ceil(x)`, `floor(x)`, `random()` functions in Math in Java.
 
+- `Math.max(x, y)` → Returns the greater of two values x and y.
+- `Math.min(x, y)` → Returns the smaller of two values x and y.
+- `Math.abs(x)` → Returns the absolute (non-negative) value of x.
+- `Math.pow(x, y)` → Returns x raised to the power of y (x^y).
+- `Math.round(x)` → Rounds x to the nearest whole number (returns int or long).
+- `Math.ceil(x)` → Rounds x upward to the nearest integer (smallest integer ≥ x).
+- `Math.floor(x)` → Rounds x downward to the nearest integer (largest integer ≤ x).
+- `Math.random()` → Returns a pseudorandom double value between 0.0 (inclusive) and 1.0 (exclusive).
+
 > For code example - [src/module04/Maths.java](./src/module04/Maths.java)
+
+
+
+
+## Conditional Statements
+
+### if
+
+Conditions and if statements let you control the flow of your program - deciding which code runs, and which code is skipped.
+
+Every `if` statement needs a condition that results in `true` or `false`
+
+This means `if` statements work hand-in-hand with `boolean` values
+
+#### Syntax:
+
+```java
+if (condition) {
+    // block of code to be executed if the condition is true
+}
+
+```
+
+#### Example:
+
+```java
+boolean isRaining = true;
+
+if (isRaining) {
+    System.out.println("Bring an umbrella!");
+}
+
+```
+
+```java
+if (20 > 18) {
+    System.out.println("20 is greater than 18");
+}
+
+```
+
+Most often, conditions are created using comparison operators, like the ones below:
+
+- Less than: `a < b`
+- Less than or equal to: `a <= b`
+- Greater than:` a > b`
+- Greater than or equal to: `a >= b`
+- Equal to: `a == b`
+- Not equal to: `a != b`
+
+### else
+
+The `else` statement lets you run a block of code when the condition in the `if` statement is `false`.
+
+#### Syntax
+
+```java
+if (condition) {
+    // block of code to be executed if the condition is true
+} 
+else {
+    // block of code to be executed if the condition is false
+}
+
+```
+
+#### Example
+
+```java
+boolean isRaining = false;
+
+if (isRaining) {
+    System.out.println("Bring an umbrella!");
+} 
+else {
+    System.out.println("No rain today, no need for an umbrella!");
+}
+
+```
+
+```java
+int time = 20;
+
+if (time < 18) {
+    System.out.println("Good day.");
+} 
+else {
+    System.out.println("Good evening.");
+}
+
+```
+
+> - `else` does not have a condition - it runs when the `if` condition is `false`.
+> - Do not put a semicolon right after `if (condition)`. That would end the statement early and make `else` behave unexpectedly.
+
+### else if
+
+Use the `else if` statement to specify a new condition if the first condition is false.
+
+#### Syntax
+
+```java
+if (condition1) {
+    // block of code to be executed if condition1 is true
+} 
+else if (condition2) {
+    // block of code to be executed if the condition1 is false and condition2 is true
+} 
+else {
+    // block of code to be executed if the condition1 is false and condition2 is false
+}
+
+```
+
+#### Example
+
+```java
+int weather = 2; // 1 = raining, 2 = sunny, 3 = cloudy
+
+if (weather == 1) {
+    System.out.println("Bring an umbrella.");
+} 
+else if (weather == 2) {
+    System.out.println("Wear sunglasses.");
+} 
+else {
+    System.out.println("Just go outside normally.");
+}
+
+```
+
+```java
+int time = 22;
+
+if (time < 10) {
+    System.out.println("Good morning.");
+} 
+else if (time < 18) {
+    System.out.println("Good day.");
+} 
+else {
+    System.out.println("Good evening.");
+}
+
+```
+
+### Nested if
+
+You can also place an `if` statement inside another `if`. This is called a nested if statement.
+
+A nested `if` lets you check for a condition only if another condition is already `true`.
+
+#### Syntax
+
+```java
+if (condition1) {
+    // code to run if condition1 is true
+    if (condition2) {
+        // code to run if both condition1 and condition2 are true
+    }
+}
+
+```
+
+#### Example
+
+```java
+int x = 15;
+int y = 25;
+
+if (x > 10) {
+    
+    System.out.println("x is greater than 10");
+  
+    // Nested if 
+    if (y > 20) {
+        System.out.println("y is also greater than 20");
+    }
+}
+
+```
+
+```java
+int age = 20;
+boolean isCitizen = true;
+
+if (age >= 18) {
+    
+    System.out.println("Old enough to vote.");
+  
+    if (isCitizen) {
+        System.out.println("And you are a citizen, so you can vote!");
+    } 
+    else {
+        System.out.println("But you must be a citizen to vote.");
+    }
+} 
+else {
+    System.out.println("Not old enough to vote.");
+}
+
+```
+
+### Ternary Operators
+
+There is also a short-hand if else, which is known as the ternary operator because it consists of three operands.
+
+It can be used to replace multiple lines of code with a single line, and is most often used to replace simple if else statements
+
+#### Syntax
+
+```java
+variable = (condition) ? expressionTrue :  expressionFalse;
+
+```
+
+#### Example
+
+```java
+int time = 20;
+String result = (time < 18) ? "Good day" : "Good evening";
+System.out.println(result); // Good evening
+
+```
+
+### Switch
+
+Instead of writing many `if..else` statements, you can use the `switch` statement.
+
+The `switch` statement selects one of many code blocks to be executed
+
+#### Syntax
+
+```java
+switch(expression) {
+    case x:
+        // code block
+        break;
+    case y:
+        // code block
+        break;
+    default:
+        // code block
+}
+
+```
+
+This is how it works:
+
+- The `switch` expression is evaluated once.
+- The result is compared with each `case` value.
+- If there is a match, the matching block of code runs.
+- The `break` statement stops the switch after the matching case has run.
+- The `default` statement runs if there is no match.
+
+#### Example
+
+```java
+int day = 4;
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    case 3:
+        System.out.println("Wednesday");
+        break;
+    case 4:
+        System.out.println("Thursday");
+        break;
+    case 5:
+        System.out.println("Friday");
+        break;
+    case 6:
+        System.out.println("Saturday");
+        break;
+    case 7:
+        System.out.println("Sunday");
+        break;
+    default:
+        System.out.println("Invalid Expression");
+}
+
+```
+
+> A break can save a lot of execution time because it "ignores" the execution of all the rest of the code in the switch block.
+
+> Note that if the default statement is used as the last statement in a switch block, it does not need a break.
