@@ -11,6 +11,10 @@
 - [Strings](#strings)
 - [Maths](#math)
 - [Conditinal Statements](#conditional-statements)
+- [Loops](#loops)
+- [Break/Continue](#breakcontinue)
+- [Arrays](#arrays)
+- [Multidimensional Array](#multidimensional-arrays)
 
 
 
@@ -715,7 +719,7 @@ Example explained
 
 ### For-Each Loop
 
-There is also a `for-each` loop, which is used exclusively to loop through elements in an `array` (or other data structures)
+There is also a **for-each** loop, which is used exclusively to loop through elements in an `array` (or other data structures)
 
 #### Syntax
 
@@ -726,7 +730,7 @@ for (type variableName : arrayName) {
 
 ```
 
-> The `for-each` loop is simpler and more readable than a regular `for` loop, since you don't need a counter (like `i < array.length`).
+> The **for-each** loop is simpler and more readable than a regular `for` loop, since you don't need a counter (like `i < array.length`).
 
 #### Example
 
@@ -815,8 +819,227 @@ for (int i = 0; i < 10; i++) {
 
 > This example skips the value of 4
 
+### Break vs Continue
+
 | Keyword   | Description                                   | Effect in Loop                         |
 |-----------|-----------------------------------------------|----------------------------------------|
 | `break`   | Stops the loop completely                     | Exits the loop immediately             |
 | `continue`| Skips the current iteration and continues loop| Moves to the next iteration of the loop|
 
+
+
+
+## Arrays
+
+Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.
+
+To declare an array, define the variable type with **square brackets** `[ ]`
+
+```java
+int[] nums;
+
+```
+
+We have now declared a variable that holds an array of integers. To insert values to it, you can place the values in a comma-separated list, inside curly braces `{ }`
+
+```java
+int[] nums = {3, 4, 2, 5, 1};
+
+```
+
+### Access the Elements of Array
+
+You can access an array element by referring to the index number.
+
+```java
+int[] nums = {3, 4, 2, 5, 1};
+System.out.println(nums[0]) // 3
+
+```
+
+> Note: Array indexes start with 0: [0] is the first element. [1] is the second element, etc.
+
+| Index | Value |
+|-------|-------|
+| 0     | 3     |
+| 1     | 4     |
+| 2     | 2     |
+| 3     | 5     |
+| 4     | 1     |
+
+### Change an Array Element
+
+To change the value of a specific element, refer to the index number
+
+```java
+nums[0] = 6;
+
+```
+
+```java
+int[] nums = {3, 4, 2, 5, 1};
+nums[0] = 6;
+System.out.println(nums[0]) // 6
+
+```
+
+### Array Length
+
+To find out how many elements an array has, use the `length` property
+
+```java
+int[] nums = {3, 4, 2, 5, 1};
+System.out.println(nums.length); // 5
+
+```
+
+### The `new` Keyword
+
+You can also create an array by specifying its size with `new`. This makes an empty array with space for a fixed number of elements, which you can fill later
+
+```java
+String[] cars = new String[4]; // size is 4
+
+cars[0] = "Volvo";
+cars[1] = "BMW";
+cars[2] = "Ford";
+cars[3] = "Mazda";
+
+System.out.println(cars[0]); // Outputs Volvo
+
+```
+
+However, if you already know the values, you don't need to write `new`. Both of these create the same array
+
+```java
+// With new
+String[] cars = new String[] {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Shortcut (most common)
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+```
+
+> **Note**: You cannot write new String[4] {"Volvo", "BMW", "Ford", "Mazda"}. <br>
+> In Java, when using new, you either:
+> - Use new String[4] to create an empty array with 4 slots, and then fill them later
+> - Or use new String[] {"Volvo", "BMW", "Ford", "Mazda"} (without specifying the number of elements) to create the array and assign values at the same time 
+
+> **Tip**: The shortcut syntax is most often used when the values are known at the start. Use new with a size when you want to create an empty array and fill it later.
+
+### Arrays Loop
+
+#### Loop Through an Array
+
+You can loop through the array elements with the `for` loop, and use the `length` property to specify how many times the loop should run.
+
+```java
+int[] nums = {10, 20, 30, 40};
+
+for (int i = 0; i < nums.length; i++) {
+    System.out.println(nums[i]);
+}
+
+```
+
+> This example creates an array of strings and then uses a `for` loop to print each element, one by one
+
+#### Loop Through an Array with For-Each
+
+There is also a **for-each** loop, which is used exclusively to loop through elements in an `array` (or other data structures)
+
+```java
+int[] nums = {10, 20, 30, 40};
+
+for (int num: nums) {
+    System.out.println(num);
+}
+
+```
+
+> The following example uses a **for-each** loop to print all elements in the nums array
+
+> **Note**: The **for-each** loop is great when you only need to read elements. If you want to change the elements later, or keep track of their index, use a regular `for` loop instead.
+
+## Multidimensional Arrays
+
+A multidimensional array is an array that contains other arrays.
+
+You can use it to store data in a table with rows and columns.
+
+To create a two-dimensional array, write each row inside its own curly braces
+
+```java
+int[][] myNumbers = { {1, 4, 2}, {3, 6, 8} };
+
+```
+
+> Here, myNumbers has two arrays (two rows):
+> - First row: `{1, 4, 2}`
+> - Second row: `{3, 6, 8}`
+
+### Access Elements
+
+To access an element of a two-dimensional array, you need two indexes: the first for the row, and the second for the column.
+
+```java
+int[][] myNumbers = { {1, 4, 2}, {3, 6, 8} };
+System.out.println(myNumbers[1][2]); // Outputs 8
+
+```
+
+> This statement accesses the element in the **second row** (index 1) and **third column** (index 2) of the myNumbers array
+
+### Change Element Values
+
+You can overwrite an existing element using the same two-index notation (row, then column)
+
+```java
+int[][] myNumbers = { {1, 4, 2}, {3, 6, 8} };
+myNumbers[1][2] = 9;
+System.out.println(myNumbers[1][2]); // 9
+
+```
+
+### Rows and Columns (Lengths)
+
+You can use `length` to get the number of rows, and` myNumbers[row].length` for the number of columns in a given row
+
+```java
+int[][] myNumbers = { {1, 4, 2}, {3, 6, 8, 5, 2} };
+
+System.out.println("Rows: " + myNumbers.length);             // 2
+System.out.println("Cols in row 0: " + myNumbers[0].length); // 3
+System.out.println("Cols in row 1: " + myNumbers[1].length); // 5
+
+```
+
+> **Note**: Notice how rows can have different lengths - In this example, the second row has more elements than the first, and that's perfectly valid in Java.
+
+### Loop Through a Multidimensional Array
+
+Use a `for` loop inside another `for` loop to visit every element (row by row)
+
+```java
+int[][] myNumbers = { {1, 4, 2}, {3, 6, 8, 5, 2} };
+
+for (int row = 0; row < myNumbers.length; row++) {
+    for (int col = 0; col < myNumbers[row].length; col++) {
+        System.out.println("myNumbers[" + row + "][" + col + "] = " + myNumbers[row][col]);
+    }
+}
+
+```
+
+Or use a for-each loop in both levels, which many find easier to read
+
+```java
+int[][] myNumbers = { {1, 4, 2}, {3, 6, 8, 5, 2} };
+
+for (int[] row : myNumbers) {
+    for (int num : row) {
+        System.out.println(num);
+    }
+}
+
+```
