@@ -613,3 +613,210 @@ switch (day) {
 > A break can save a lot of execution time because it "ignores" the execution of all the rest of the code in the switch block.
 
 > Note that if the default statement is used as the last statement in a switch block, it does not need a break.
+
+## Loops
+
+Loops can execute a block of code as long as a specified condition is true.
+
+Loops are handy because they save time, reduce errors, and they make code more readable.
+
+### While Loop
+
+The `while` loop repeats a block of code as long as the specified condition is true
+
+#### Syntax
+
+```java
+while (condition) {
+    // code block to be executed
+}
+
+```
+
+#### Example
+
+```java
+int i = 0;
+while (i < 5) {
+    System.out.println(i);
+    i++;
+}
+
+```
+
+> **Note**: Do not forget to increase the variable used in the condition (`i++`), otherwise the loop will never end!
+
+### Do-While Loop
+
+The `do/while` loop is a variant of the `while` loop. This loop will execute the code block **once**, before checking if the condition is **true**. Then it will repeat the loop as long as the condition is **true**.
+
+#### Syntax
+
+```java
+do {
+    // code block to be executed
+}
+while (condition);
+
+```
+
+> **Note**: The semicolon `;` after the while condition is required!
+
+#### Example
+
+```java
+int i = 0;
+do {
+    System.out.println(i);
+    i++;
+}
+while (i < 5);
+
+```
+
+> Do not forget to increase the variable used in the condition (i++), otherwise the loop will never end!
+
+#### Condition is False from the Start
+
+In the `while` loop, we saw that if the condition is false at the beginning, the loop never runs at all.
+
+The `do/while` loop is different: it will always run the code block at least once, even if the condition is false from the start.
+
+### For Loop
+
+When you know exactly how many times you want to loop through a block of code, use the `for` loop instead of a `while` loop
+
+#### Syntax
+
+```java
+for (statement 1; statement 2; statement 3) {
+    // code block to be executed
+}
+
+```
+
+- Statement 1 is executed (one time) before the execution of the code block.
+- Statement 2 defines the condition for executing the code block.
+- Statement 3 is executed (every time) after the code block has been executed.
+
+#### Example
+
+```java
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+
+```
+
+Example explained
+- Statement 1 sets a variable before the loop starts: int i = 0
+- Statement 2 defines the condition for the loop to run: i < 5. If the condition is true, the loop will run again; if it is false, the loop ends.
+- Statement 3 increases a value each time the code block has run: i++
+
+### For-Each Loop
+
+There is also a `for-each` loop, which is used exclusively to loop through elements in an `array` (or other data structures)
+
+#### Syntax
+
+```java
+for (type variableName : arrayName) {
+    // code block to be executed
+}
+
+```
+
+> The `for-each` loop is simpler and more readable than a regular `for` loop, since you don't need a counter (like `i < array.length`).
+
+#### Example
+
+```java
+int[] numbers = {10, 20, 30, 40};
+
+for (int num : numbers) {
+    System.out.println(num);
+}
+
+```
+
+```java
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+for (String car : cars) {
+    System.out.println(car);
+}
+
+```
+
+### Nested Loop
+
+It is also possible to place a loop inside another loop. This is called a nested loop.
+
+The **inner loop** will be executed one time for each iteration of the **outer loop**.
+
+#### Example
+
+```java
+// Outer loop
+for (int i = 1; i <= 2; i++) {
+
+    System.out.println("Outer: " + i); // Executes 2 times
+  
+    // Inner loop
+    for (int j = 1; j <= 3; j++) {
+        System.out.println(" Inner: " + j); // Executes 6 times (2 * 3)
+    }
+} 
+
+```
+
+
+
+
+## Break/Continue
+
+### Break
+
+The `break` statement can also be used to jump out of a loop.
+
+#### Example
+
+```java
+for (int i = 0; i < 10; i++) {
+    
+    if (i == 4) {
+        break;
+    }
+
+    System.out.println(i);
+}
+
+```
+
+> This example stops the loop when i is equal to 4
+
+### Continue
+
+The `continue` statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+
+#### Example
+
+```java
+for (int i = 0; i < 10; i++) {
+    
+    if (i == 4) {
+        continue;
+    }
+    
+    System.out.println(i);
+}
+
+```
+
+> This example skips the value of 4
+
+| Keyword   | Description                                   | Effect in Loop                         |
+|-----------|-----------------------------------------------|----------------------------------------|
+| `break`   | Stops the loop completely                     | Exits the loop immediately             |
+| `continue`| Skips the current iteration and continues loop| Moves to the next iteration of the loop|
+
