@@ -9,6 +9,7 @@
 - [Data Types](#data-types)
 - [Operators](#operators)
 - [Strings](#strings)
+- [Maths](#math)
 
 
 
@@ -303,3 +304,12 @@ String z = x + y;  // z will be 1020 (a String)
 | \f   | Form Feed      | Moves to next page (printer context) |
 
 > For code example - [src/module04/SpecialCharacters.java](./src/module04/SpecialCharacters.java)
+
+
+
+
+## Math
+
+We have `max(x, y)`, `min(x, y)`, `abs(x)`, `pow(x, y)`, `round(x)`, `ceil(x)`, `floor(x)`, `random()` functions in Math in Java.
+
+> For code example - [src/module04/Maths.java](./src/module04/Maths.java)
