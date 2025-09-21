@@ -15,6 +15,8 @@
 - [Break/Continue](#breakcontinue)
 - [Arrays](#arrays)
 - [Multidimensional Array](#multidimensional-arrays)
+- [Methods](#java-methods)
+- [Scope](#scope)
 
 
 
@@ -1039,6 +1041,285 @@ int[][] myNumbers = { {1, 4, 2}, {3, 6, 8, 5, 2} };
 for (int[] row : myNumbers) {
     for (int num : row) {
         System.out.println(num);
+    }
+}
+
+```
+
+
+
+
+## Java Methods
+
+A **method** is a block of code which only runs when it is called.
+
+You can pass data, known as parameters, into a method.
+
+Methods are used to perform certain actions, and they are also known as **functions**.
+
+Why use methods? To reuse code: define the code once, and use it many times.
+
+### Create a Method
+
+A method must be declared within a class. It is defined with the name of the method, followed by parentheses `()`. Java provides some pre-defined methods, such as `System.out.println()`, but you can also create your own methods to perform certain actions
+
+#### Example
+
+```java
+public class Main {
+    static void myMethod() {
+        // code to be executed
+    }
+}
+
+```
+
+> - `myMethod()` is the name of the method
+> - `static` means that the method belongs to the Main class and not an object of the Main class. You will learn more about objects and how to access methods through objects later in this tutorial.
+> - `void` means that this method does not have a return value. You will learn more about return values later in this chapter
+
+### Call a Method
+
+To call a method in Java, write the method's name followed by two parentheses `()` and a semicolon `;`
+
+A method can also be called multiple times
+
+```java
+public class Main {
+    static void myMethod() {
+        System.out.println("I just got executed!");
+    }
+
+    public static void main(String[] args) {
+        myMethod();
+    }
+}
+
+```
+
+> In the above example, `myMethod()` is used to print a text (the action), when it is called
+
+### Parameters and Arguments
+
+Information can be passed to methods as a parameter. Parameters act as variables inside the method.
+
+Parameters are specified after the method name, inside the parentheses. You can add as many parameters as you want, just separate them with a comma.
+
+#### Example
+
+```java
+public class Main {
+    static void myMethod(String fname) {
+        System.out.println("Hello " + fname);
+    }
+
+    public static void main(String[] args) {
+        myMethod("Samm");
+        myMethod("Sammy");
+    }
+}
+
+```
+
+> When a **parameter** is passed to the method, it is called an **argument**. So, from the example above: `fname` is a **parameter**, while `Samm` and `Sammy` are **arguments**.
+
+```java
+public class Main {
+    static void myMethod(String fname, int id) {
+        System.out.println("Hello " + fname + ", You ID is " + id);
+    }
+
+    public static void main(String[] args) {
+        myMethod("Samm", 10);
+        myMethod("Sammy", 53);
+    }
+}
+
+```
+
+> Note that when you are working with multiple parameters, the method call must have the same number of arguments as there are parameters, and the arguments must be passed in the same order.
+
+### Return Values
+
+In the previous examples, we used the `void` keyword in all examples (like `static void myMethod(int x)`), which indicates that the method should not return a value.
+
+If you want the method to return a value, you can use a primitive data type (such as `int`, `char`, etc.) instead of `void`, and use the `return` keyword inside the method
+
+#### Example
+
+```java
+public class Main {
+    static int myMethod(int x, int y) {
+        return x + y;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(myMethod(5, 10));
+    }
+}
+
+```
+
+### Method Overloading
+
+With method overloading, multiple methods can have the same name with different parameters
+
+```java
+int myMethod(int x)
+float myMethod(float x)
+double myMethod(double x, double y)
+
+```
+
+```java
+static int plusMethodInt(int x, int y) {
+    return x + y;
+}
+
+static double plusMethodDouble(double x, double y) {
+    return x + y;
+}
+
+public static void main(String[] args) {
+    int myNum1 = plusMethodInt(8, 5);
+    double myNum2 = plusMethodDouble(4.3, 6.26);
+    System.out.println("int: " + myNum1);
+    System.out.println("double: " + myNum2);
+}
+
+```
+
+> **Note**: Multiple methods can have the same name as long as the number and/or type of parameters are different.
+
+### Recursion
+
+Recursion is the technique of making a function call itself. This technique provides a way to break complicated problems down into simpler problems which are easier to solve.
+
+#### Example
+
+```java
+public class Main {
+    public static int sum(int k) {
+        if (k > 0) {
+            return k + sum(k - 1);
+        } 
+        else {
+            return 0;
+        }
+    }
+
+    public static void main(String[] args) {
+        int result = sum(10);
+        System.out.println(result);
+    }
+}
+
+```
+
+> When the sum() method is called, it adds parameter k to the sum of all numbers smaller than k and returns the result. When k becomes 0, the method just returns 0 (Since the method does not call itself when k is 0, the program stops there and returns the result). When running, the program follows these steps
+> - 10 + sum(9)
+> - 10 + (9 + sum(8))
+> - 10 + (9 + (8 + sum(7)))
+> - ...
+> - 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 + sum(0)
+> - 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 + 0
+
+### Halting Condition
+
+Just as loops can run into the problem of infinite looping, recursive methods can run into the problem of infinite recursion. Infinite recursion is when the method never stops calling itself. Every recursive method should have a halting condition, which is the condition where the method stops calling itself. In the previous example, the halting condition is when the parameter `k` becomes 0.
+
+> Be careful with recursion: it's easy to accidentally write a method that never stops or uses too much memory. But when written correctly, recursion can be both efficient and elegant.
+
+
+
+
+## Scope
+
+In Java, variables are only accessible inside the region where they are created. This is called **scope**.
+
+### Method Scope
+
+Variables declared directly inside a method are available anywhere in the method following the line of code in which they were declared
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        // Code here CANNOT use x
+
+        int x = 100;
+
+        // Code here CAN use x
+        System.out.println(x);
+    }
+}
+
+```
+
+### Block Scope
+
+A block of code refers to all of the code between curly braces `{ }`
+
+Variables declared inside a block of code are only accessible by the code between the curly braces, and only after the line in which the variable was declared
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        // Code here CANNOT use x
+
+        { // This is a block
+
+            // Code here CANNOT use x
+
+            int x = 100;
+
+            // Code here CAN use x
+            System.out.println(x);
+
+        } // The block ends here
+
+        // Code here CANNOT use x
+
+    }
+}
+
+```
+
+### Loop Scope
+
+Variables declared inside a for loop only exist inside the loop
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i); // i is accessible here
+        }
+
+        // i is NOT accessible here
+    }
+}
+
+```
+
+- The `for` loop has its own block (`{ ... }`).
+- The variable `i` declared in the loop header (`int i = 0`) is only accessible inside that loop block.
+- Once the loop ends, `i` is destroyed, so you can't use it outside.
+
+### Class Scope
+
+Variables declared inside a class but outside any method have class scope (also called fields). These variables can be accessed by all methods in the class
+
+```java
+public class Main {
+    
+    int x = 5; // Class variable
+
+    public static void main(String[] args) {
+        Main myObj = new Main();
+        System.out.println(myObj.x); // Accessible here
     }
 }
 
