@@ -1,1 +1,5 @@
+# Java Output files
 *.class
+
+# File Handling
+filename.txt
