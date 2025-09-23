@@ -17,6 +17,9 @@
 - [Multidimensional Array](#multidimensional-arrays)
 - [Methods](#java-methods)
 - [Scope](#scope)
+- [Errors](#java-errors)
+- [Debugging](#debugging)
+- [Exception](#java-exceptions)
 
 
 
@@ -134,7 +137,7 @@ The main differences between **primitive** and **non-primitive** data types are:
 - Primitive types start with a lowercase letter (like `int`), while non-primitive types typically starts with an uppercase letter (like `String`).
 - Primitive types always hold a value, whereas non-primitive types can be `null`.
 
-### The var Keyword
+### The `var` Keyword
 
 The `var` keyword lets the compiler automatically detect the type of a variable based on the value you assign to it. <br> This helps you write cleaner code and avoid repeating types, especially for long or complex types.
 
@@ -1321,6 +1324,234 @@ public class Main {
         Main myObj = new Main();
         System.out.println(myObj.x); // Accessible here
     }
+}
+
+```
+
+
+
+
+## Java Errors
+
+Even experienced Java developers make mistakes. The key is learning how to spot and fix them!
+
+| Error Type         | Description                                                |
+| ------------------ | ---------------------------------------------------------- |
+| Compile-Time Error | Detected by the compiler. Prevents code from running.      |
+| Runtime Error      | Occurs while the program is running. Often causes crashes. |
+| Logical Error      | Code runs but gives incorrect results. Hardest to find.    |
+
+#### Common Compile-Time Errors
+
+Compile-time errors occur when the program cannot compile due to syntax or type issues.
+
+- Missing Semicolon
+- Undeclared Variables
+- Mismatched Types (Data Types)
+
+#### Common Runtime Errors
+
+Runtime errors occur when the program compiles but crashes or behaves unexpectedly.
+
+- Division by Zero
+- Array Index Out of Bounds
+
+#### Logical Errors
+
+Logical errors happen when the code runs, but the result is not what you thought.
+
+### Good Habits to Avoid Errors
+
+- Use meaningful variable names
+- Read the error message carefully. What line does it mention?
+- Check for missing semicolons or braces
+- Look for typos in variable or method names
+
+
+
+
+## Debugging
+
+Debugging is the process of identifying and fixing errors or bugs in your code.
+
+It often involves:
+- Reading error messages
+- Tracing variable values step by step
+- Testing small pieces of code independently
+
+> **Tip**: Debugging is a skill that improves with practice. The more you debug, the better you get at spotting problems quickly.
+
+
+
+
+## Java Exceptions
+
+As mentioned earlier, different types of errors can occur while running a program - such as coding mistakes, invalid input, or unexpected situations.
+
+When an error occurs, Java will normally stop and generate an error message. The technical term for this is: Java will throw an exception (throw an error).
+
+### Exceptions Handling (try and catch)
+
+Exception handling lets you catch and handle errors during runtime - so your program doesn't crash.
+
+It uses different keywords
+- The `try` statement allows you to define a block of code to be tested for errors while it is being executed.
+- The `catch` statement allows you to define a block of code to be executed, if an error occurs in the try block.
+- The `try` and `catch` keywords come in pairs
+
+#### Syntax
+
+```java
+try {
+    //  Block of code to try
+}
+catch(Exception e) {
+    //  Block of code to handle errors
+}
+
+```
+
+#### Example
+
+```java
+public class Main {
+    public static void main(String[ ] args) {
+        try {
+            int[] myNumbers = {1, 2, 3};
+            System.out.println(myNumbers[10]);
+        } 
+        catch (Exception e) {
+            System.out.println("Something went wrong.");
+        }
+    }
+}
+
+```
+
+The output will be:
+
+```
+Something went wrong.
+```
+
+### Finally
+
+The `finally` statement lets you execute code, after `try...catch`, regardless of the result
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int[] myNumbers = {1, 2, 3};
+            System.out.println(myNumbers[10]);
+        } 
+        catch (Exception e) {
+            System.out.println("Something went wrong.");
+        } 
+        finally {
+            System.out.println("The 'try catch' is finished.");
+        }
+    }
+}
+
+```
+
+The output will be:
+
+```
+Something went wrong.
+The 'try catch' is finished.
+```
+
+### The `throw` Keyword
+
+The `throw` statement allows you to create a custom error.
+
+The `throw` statement is used together with an **exception type**. There are many exception types available in Java: `ArithmeticException`, `FileNotFoundException`, `ArrayIndexOutOfBoundsException`, `SecurityException`, etc.
+
+```java
+public class Main {
+    static void checkAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+        }
+        else {
+            System.out.println("Access granted - You are old enough!");
+        }
+    }
+
+    public static void main(String[] args) {
+        checkAge(15); // Set age to 15 (which is below 18...)
+    }
+}
+
+```
+
+| Error/Exception                 | Description                                                                    |
+| ------------------------------- | ------------------------------------------------------------------------------ |
+| ArithmeticError                 | Occurs when a numeric calculation goes wrong                                   |
+| ArrayIndexOutOfBoundsException  | Occurs when trying to access an index number that does not exist in an array   |
+| ClassNotFoundException          | Occurs when trying to access a class that does not exist                       |
+| FileNotFoundException           | Occurs when a file cannot be accessed                                          |
+| InputMismatchException          | Occurs when entering wrong input (e.g. text in a numerical input)              |
+| IOException                     | Occurs when an input or output operation fails                                 |
+| NullPointerException            | Occurs when trying to access an object reference that is null                  |
+| NumberFormatException           | Occurs when it is not possible to convert a specified string to a numeric type |
+| StringIndexOutOfBoundsException | Occurs when trying to access a character in a String that does not exist       |
+
+
+### Multiple Exceptions
+
+Sometimes, different errors (exceptions) can happen in the same `try` block. You can handle them with **multiple catch blocks**.
+
+#### One try, Many catch
+
+You can add more than one `catch` block, and Java will run the first one that matches the thrown exception type
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            System.out.println(numbers[10]);  // ArrayIndexOutOfBoundsException
+            int result = 10 / 0;              // ArithmeticException
+        } 
+        catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array index does not exist.");
+        } 
+        catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero.");
+        } 
+        catch (Exception e) {
+            System.out.println("Something else went wrong.");
+        }
+    }
+}
+
+```
+
+The output will be:
+
+```
+Array index does not exist.
+```
+
+> **Explanation**: Only the first exception (`ArrayIndexOutOfBoundsException`) is thrown, so only the first matching `catch` runs.
+
+> **Order Matters**: You should always put more specific exceptions first, and general ones later. Otherwise, the general catch will grab the error and the specific ones will never run 
+
+#### Multi-Catch
+
+you can catch multiple exceptions in one catch block using the `|` symbol. This is useful when different exceptions should be handled in the same way, so you don't have to repeat code
+
+```java
+try {
+    int result = 10 / 0;
+    int[] numbers = {1, 2, 3};
+    System.out.println(numbers[10]);
+} 
+catch (ArithmeticException | ArrayIndexOutOfBoundsException e) {
+    System.out.println("Math error or array error occurred.");
 }
 
 ```
