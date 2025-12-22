@@ -3,24 +3,90 @@
 
 
 
+| Topics      | Modules        | Links |
+|------------|----------------|-------|
+| Java Basics | Modules 1–10   | [Click](https://github.com/Saumyajeet-Varma/Learn-Java) |
+| Java OOP    | Modules 11–20  | [Click](https://github.com/Saumyajeet-Varma/Learn-Java-OOP) |
+| Java DS     | Modules 21–30  | [Click](https://github.com/Saumyajeet-Varma/Learn-Java-DataStructures) |
+
+
+
+
+# Java Basics
+
+
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+    - [Print](#print)
+    - [Comments](#comments)
 - [Data Types](#data-types)
+    - [Primitive](#primitive-data-types)
+    - [Non-Primitive](#non-primitive-data-types)
+    - [The `var` Keyword](#the-var-keyword)
+    - [Type Casting](#type-casting)
 - [Operators](#operators)
+    - [Arithmetic Operators](#arithmetic-operators) 
+    - [Assignment Operators](#assignment-operators) 
+    - [Comparision Operators](#comparision-operators) 
+    - [Logical Operators](#logical-operators) 
 - [Strings](#strings)
+    - [String Methods](#string-methods) 
+    - [Adding Numbers and Strings](#adding-numbers-and-strings) 
+    - [Special Characters](#special-characters) 
 - [Maths](#math)
 - [Conditinal Statements](#conditional-statements)
+    - [`if`](#if)
+    - [`else`](#else)
+    - [`else if`](#else-if)
+    - [Nested if](#nested-if)
+    - [Ternary Operators](#ternary-operators)
+    - [Switch](#switch)
 - [Loops](#loops)
+    - [While loop](#while-loop)
+    - [Do-While loop](#do-while-loop)
+    - [For loop](#for-loop)
+    - [Nested Loop](#nested-loop)
 - [Break/Continue](#breakcontinue)
+    - [Break](#break)
+    - [Continue](#continue)
+    - [Break vs Continue](#break-vs-continue)
 - [Arrays](#arrays)
+    - [Access the Elements of Array](#access-the-elements-of-array)
+    - [Change an Array Element](#change-an-array-element)
+    - [Array Length](#array-length)
+    - [The `new` Keyword](#the-new-keyword)
+    - [Arrays Loop](#arrays-loop)
 - [Multidimensional Array](#multidimensional-arrays)
+    - [Access Elements](#access-elements)
+    - [Change Element Values](#change-element-values)
+    - [Rows and Columns](#rows-and-columns-lengths)
+    - [Loop Through a Multidimensional Array](#loop-through-a-multidimensional-array)
 - [Methods](#java-methods)
+    - [Create a Method](#create-a-method)
+    - [Call a Method](#call-a-method)
+    - [Parameters and Arguments](#parameters-and-arguments)
+    - [Return Values](#return-values)
+    - [Method Overloading](#method-overloading)
+    - [Recursion](#recursion)
 - [Scope](#scope)
+    - [Method Scope](#method-scope)
+    - [Block Scope](#block-scope)
+    - [Loop Scope](#loop-scope)
+    - [Class Scope](#class-scope)
 - [Errors](#java-errors)
 - [Debugging](#debugging)
 - [Exception](#java-exceptions)
+    - [Exceptions Handling](#exceptions-handling-try-and-catch)
+    - [Finally](#finally)
+    - [The `throw` Keyword](#the-throw-keyword)
+    - [Multiple Exceptions](#multiple-exceptions)
 - [File Handling](#file-handling)
+    - [Create Files](#create-files)
+    - [Write Files](#write-files)
+    - [Read Files](#read-files)
+    - [Delete Files](#delete-files)
 
 
 
@@ -1228,7 +1294,7 @@ public class Main {
 > - 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 + sum(0)
 > - 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 + 0
 
-### Halting Condition
+#### Halting Condition
 
 Just as loops can run into the problem of infinite looping, recursive methods can run into the problem of infinite recursion. Infinite recursion is when the method never stops calling itself. Every recursive method should have a halting condition, which is the condition where the method stops calling itself. In the previous example, the halting condition is when the parameter `k` becomes 0.
 
@@ -1881,3 +1947,8 @@ The output will be:
 ```
 Deleted the folder: Test
 ```
+
+
+
+
+# Java OOP
