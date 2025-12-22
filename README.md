@@ -3,6 +3,8 @@
 
 
 
+This Repository only contains **Java Basics**.
+
 | Topics      | Modules        | Links |
 |------------|----------------|-------|
 | Java Basics | Modules 1–10   | [Click](https://github.com/Saumyajeet-Varma/Learn-Java) |
