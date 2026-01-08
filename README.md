@@ -1949,8 +1949,3 @@ The output will be:
 ```
 Deleted the folder: Test
 ```
-
-
-
-
-# Java OOP
